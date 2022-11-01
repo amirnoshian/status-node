@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  web:
+    image: 'localhost:5000/systemstatus'
+    restart: always
+    ports:
+      - '5011:5000'
+    environment:
+     - FLASK_ENV=development
+  
