@@ -1,25 +1,17 @@
 #!/bin/bash
 # step1 : set your ip addres and port & name  in Env
 # step 2 : ensure docker registry contianer is exist
-# step 3 : config docker-compose 
-REGISTRY_PORT=5000
-NAME=systemstatus
-IPADDRESS=192.168.10.175
-docker ps | grep registry 
+# step 3 : config docker-compose
 
-if [ $? -eq 1 ] ; then
-    echo "docker registry container not exist"
-    echo " (Hint)=https://hub.docker.com/_/registry " 
-    exit 1
-else
-
-docker build -t $NAME . 
+which docker > /dev/null
 if [ $? -eq 1 ];then
-    echo "please ensure the validate Dockerfile"
-    exit 1 
+   echo "please ensure to install docker"
 else
-   docker tag $NAME localhost:5000/$NAME
-   docker push localhost:5000/$NAME
-   docker-compose up -d
-fi
+   docker build -t status-node . 
+if [ $? -eq 0 ];then
+  echo "your image name is status-node"
+  docker-compose up -d 
+else
+   "please check dockerfile"
+fi    
 fi
