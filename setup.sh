@@ -1,7 +1,4 @@
 #!/bin/bash
-# step1 : set your ip addres and port & name  in Env
-# step 2 : ensure docker registry contianer is exist
-# step 3 : config docker-compose
 
 which docker > /dev/null
 if [ $? -eq 1 ];then
