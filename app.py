@@ -16,7 +16,7 @@ def name():
     date = datetime.now()
     cpu = psutil.cpu_percent(interval=0.5)
 
-    mem_value = (psutil.swap_memory())
+    mem_value = psutil.virtual_memory()[1]
 
 
     result = {
