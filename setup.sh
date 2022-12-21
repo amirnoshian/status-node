@@ -1,5 +1,7 @@
 #!/bin/bash
-
+######
+echo "check system status node Cpu and Ram" 
+echo "<Q>___^"
 which docker > /dev/null
 if [ $? -eq 1 ];then
    echo "please ensure to install docker"
