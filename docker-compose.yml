@@ -4,7 +4,6 @@ services:
     image: 'status-node'
     restart: always
     ports:
-      - '5011:5000'
+      - '5012:5000'
     environment:
      - FLASK_ENV=development
-  
